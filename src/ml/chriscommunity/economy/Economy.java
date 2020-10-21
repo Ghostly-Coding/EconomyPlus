@@ -28,7 +28,7 @@ public class Economy {
 			data.createTable();
 		} else {
 			return 1;
-		}
+		} // hrmm
 		
 		return 0;
 	}
