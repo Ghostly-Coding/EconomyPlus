@@ -4,7 +4,7 @@
   <artifactId>EconomyPlugin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <scm>
-  	<connection>scm:git:http://github.com/Ghostly-Coding/EconomyPlus</connection>
+  	<connection>scm:git:https://github.com/Ghostly-Coding/EconomyPlus</connection>
   	
   </scm>
   <build>
