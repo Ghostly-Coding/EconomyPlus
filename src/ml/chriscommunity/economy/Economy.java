@@ -3,6 +3,7 @@ package ml.chriscommunity.economy;
 import java.sql.SQLException;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import ml.chriscommunity.economy.sql.MySQL;
 import ml.chriscommunity.economy.sql.SQLGetter;
@@ -31,5 +32,27 @@ public class Economy {
 		}
 		
 		return 0;
+	}
+	
+	int depositPlayer(Player player, double coins) {
+		if(coins < 0)
+			return 1;
+		data.setCoins(player.getUniqueId(), coins + data.getCoins(player.getUniqueId()));
+		
+		return 0;
+	}
+	
+	int withdrawPlayer(Player player, double coins) {
+		if(coins < 0)
+			return 1;
+		if(getBalance(player) - coins < 0)
+			return 1;
+		data.setCoins(player.getUniqueId(), data.getCoins(player.getUniqueId()) - coins);
+		
+		return 0;
+	}
+	
+	double getBalance(Player player) {
+		return data.getCoins(player.getUniqueId());
 	}
 }

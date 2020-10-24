@@ -60,10 +60,10 @@ public class SQLGetter {
 		return false;
 	}
 	
-	public void setPoints(UUID uuid, int coins) {
+	public void setCoins(UUID uuid, double coins) {
 		try {
 			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("UPDATE economy SET COINS=? WHERE UUID=?");
-			ps.setInt(1, (coins));
+			ps.setDouble(1, (coins));
 			ps.setString(2, uuid.toString());
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -71,14 +71,14 @@ public class SQLGetter {
 		}
 	}
 	
-	public int getCoins(UUID uuid) {
+	public double getCoins(UUID uuid) {
 		try {
 			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT COINS FROM economy WHERE UUID=?");
 			ps.setString(1, uuid.toString());
 			ResultSet rs = ps.executeQuery();
-			int points = 0;
+			double points = 0;
 			if (rs.next()) {
-				points = rs.getInt("COINS");
+				points = rs.getDouble("COINS");
 				return points;
 			}
 		} catch (SQLException e) {
