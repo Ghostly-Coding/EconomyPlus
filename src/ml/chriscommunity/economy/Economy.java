@@ -12,7 +12,7 @@ public class Economy {
 	public MySQL SQL;
 	public SQLGetter data;
 	
-	int initEcon() {
+	public int initEcon() {
 		this.SQL = new MySQL();
 		this.data = new SQLGetter(this);
 		
@@ -34,7 +34,7 @@ public class Economy {
 		return 0;
 	}
 	
-	int depositPlayer(Player player, double coins) {
+	public int depositPlayer(Player player, double coins) {
 		if(coins < 0)
 			return 1;
 		data.setCoins(player.getUniqueId(), coins + data.getCoins(player.getUniqueId()));
@@ -42,7 +42,7 @@ public class Economy {
 		return 0;
 	}
 	
-	int withdrawPlayer(Player player, double coins) {
+	public int withdrawPlayer(Player player, double coins) {
 		if(coins < 0)
 			return 1;
 		if(getBalance(player) - coins < 0)
@@ -52,7 +52,7 @@ public class Economy {
 		return 0;
 	}
 	
-	double getBalance(Player player) {
+	public double getBalance(Player player) {
 		return data.getCoins(player.getUniqueId());
 	}
 }
