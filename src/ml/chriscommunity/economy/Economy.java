@@ -37,6 +37,9 @@ public class Economy {
 	public int depositPlayer(Player player, double coins) {
 		if(coins < 0)
 			return 1;
+		if(!data.exists(player.getUniqueId())) {
+			data.createPlayer(player);
+		}
 		data.setCoins(player.getUniqueId(), coins + data.getCoins(player.getUniqueId()));
 		
 		return 0;
@@ -47,6 +50,9 @@ public class Economy {
 			return 1;
 		if(getBalance(player) - coins < 0)
 			return 1;
+		if(!data.exists(player.getUniqueId())) {
+			data.createPlayer(player);
+		}
 		data.setCoins(player.getUniqueId(), data.getCoins(player.getUniqueId()) - coins);
 		
 		return 0;
