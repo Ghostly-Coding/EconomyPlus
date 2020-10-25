@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class MySQL {
 	
-	private String host = "107.180.40.196";
+	private String host = "localhost";
 	private String port = "3306";
-	private String database = "ccbdb";
-	private String username = "ccnusr";
-	private String password = "6VcVZuDqC3ns5c7";
+	private String database = "test";
+	private String username = "root";
+	private String password = "";
 	
 	private Connection connection;
 	
