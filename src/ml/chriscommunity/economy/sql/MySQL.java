@@ -15,7 +15,7 @@ public class MySQL {
 	private Connection connection;
 	
 	public boolean isConnected() {
-		return (connection == null ? false : true);
+		return connection != null;
 	}
 	
 	public void connect() throws ClassNotFoundException, SQLException {
