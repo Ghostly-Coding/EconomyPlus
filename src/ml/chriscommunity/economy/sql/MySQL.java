@@ -8,7 +8,7 @@ public class MySQL {
 	
 	private String host = "107.180.40.196";
 	private String port = "3306";
-	private String database = "ccndb";
+	private String database = "ccbdb";
 	private String username = "ccnusr";
 	private String password = "6VcVZuDqC3ns5c7";
 	
