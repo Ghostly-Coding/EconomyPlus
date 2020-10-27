@@ -13,7 +13,7 @@ public class Main extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		econ = new Economy();
-		if(econ.initEcon() == 0) {
+		if(econ.initEcon("economy") == 0) {
 			Bukkit.getLogger().info("Database connected");
 		} else {
 			Bukkit.getLogger().info("Database not connected");

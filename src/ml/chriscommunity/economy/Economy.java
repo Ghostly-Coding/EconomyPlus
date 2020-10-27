@@ -14,7 +14,7 @@ public class Economy {
 	
 	public int initEcon(String tableName) {
 		this.SQL = new MySQL();
-		this.data = new SQLGetter(this);
+		this.data = new SQLGetter(this, tableName);
 		
 		try {
 			SQL.connect();
@@ -26,7 +26,7 @@ public class Economy {
 		}
 		
 		if(SQL.isConnected()) {
-			data.createTable(tableName);
+			data.createTable();
 		} else {
 			return 1;
 		}
