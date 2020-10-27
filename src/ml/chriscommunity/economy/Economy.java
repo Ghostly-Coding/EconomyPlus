@@ -12,7 +12,7 @@ public class Economy {
 	public MySQL SQL;
 	public SQLGetter data;
 	
-	public int initEcon() {
+	public int initEcon(String tableName) {
 		this.SQL = new MySQL();
 		this.data = new SQLGetter(this);
 		
@@ -26,7 +26,7 @@ public class Economy {
 		}
 		
 		if(SQL.isConnected()) {
-			data.createTable();
+			data.createTable(tableName);
 		} else {
 			return 1;
 		}

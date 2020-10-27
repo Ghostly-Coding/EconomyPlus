@@ -16,11 +16,12 @@ public class SQLGetter {
 		this.plugin = plugin;
 	}
 	
-	public void createTable() {
+	public void createTable(String tableName) {
 		PreparedStatement ps;
 		try {
-			ps = plugin.SQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS economy "
+			ps = plugin.SQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS ? "
 					+ "(UUID VARCHAR(100), COINS INT(100), PRIMARY KEY (UUID))");
+			ps.setString(1, tableName);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
