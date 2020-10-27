@@ -21,9 +21,8 @@ public class SQLGetter {
 	public void createTable() {
 		PreparedStatement ps;
 		try {
-			ps = plugin.SQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS ? "
-					+ "(UUID VARCHAR(100), COINS INT(100), PRIMARY KEY (UUID))");
-			ps.setString(1, tableName);
+			ps = plugin.SQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS " + tableName
+					+ " (UUID VARCHAR(100), COINS INT(100), PRIMARY KEY (UUID))");
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
